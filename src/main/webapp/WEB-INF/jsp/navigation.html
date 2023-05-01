@@ -1,0 +1,45 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <!--<div class="navbar-brand">
+            <img class = "" src="/images/agri-removebg_.png"/>
+        </div>-->
+        <a class="navbar-brand" href="/index">Agro Shopping</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">All Products</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <c:set var = "adminRole" scope = "session" value = "ROLE_admin"/>
+                        <c:if test ="${adminRole == role}">
+                            <li><a class="dropdown-item" href="/addItem">Add Item</a></li>
+                            <li><a class="dropdown-item" href="/updateItem">Update Item</a></li>
+                            <li><a class="dropdown-item" href="/deleteItem">Delete Item</a></li>
+                        </c:if>
+                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex" action = "/cart" method="GET">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill" id = "number_of_cart_items">0</span>
+                </button>
+            </form>
+            &nbsp;&nbsp;
+            <li class="nav-item dropdown navbar-nav">
+                <a class="nav-link dropdown-toggle" id="navbarProfileDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Welcome ${username}</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+            </li>
+        </div>
+    </div>
+</nav>
